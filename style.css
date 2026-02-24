@@ -1,0 +1,142 @@
+ /* ---------- INDEX PAGE ---------- */
+
+ body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+} 
+
+.eye-link {
+     /* position: relative;
+    display: inline-block; */
+    display: block;
+    width: 790px;
+    height: 562px;
+    background-image: url('eye_open.png');
+    background-size: cover;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.eye-link:hover {
+background-image: url('eye_closed.png');
+}
+
+/* body no scroll*/
+
+html, body {
+    overflow: hidden;
+}
+
+
+/* ---------- ARCHIVE PAGE ---------- */
+
+.memory {
+  position: absolute;      /* free placement */
+  height: auto;            /* auto proportion */
+  transition: transform 0.3s ease;
+
+    position: absolute;
+  /* Allows free placement anywhere */
+
+  height: auto;
+  /* Keeps image proportions correct */
+
+  transition: all 0.4s ease;
+  /* Smooth animation when resizing */
+
+  cursor: pointer;
+  /* Shows pointer on hover */
+
+}
+
+
+.m1 {
+  width: 200px;            /* size */
+  top: 100px;              /* how far from top */
+  left: 150px;             /* how far from left */
+} 
+
+.m2 {
+  width: 350px;            
+  top: 300px;
+  right: 200px;
+}
+
+.m3 {
+  width: 180px;            
+  top: 700px;
+  left: 80px;
+}
+
+.m4 {
+  width: 400px;            
+  top: 1000px;
+  right: 120px;
+}
+
+
+                                                                   /* image click */
+
+.archive-container {
+  position: relative;
+  /* Allows absolute positioning of images inside */
+
+  width: 85%;
+  /* Full screen width */
+
+  height: 200vh;
+  /* Makes page tall enough to scroll */
+
+  background: white;
+  /* Background color */
+}
+
+                                                           /* Click-to-Enlarge Effect */
+
+.memory:target {
+  position: fixed;
+  /* removes image from layout and locks it to screen */
+
+  top: 50%;
+  left: 50%;
+  /* moves to center of screen */
+
+  transform: translate(-50%, -50%);
+  /* centers */
+
+  width: 60vw;
+  /* enlarge (60% of viewport width) */
+
+  z-index: 999;
+  /* overlap above other images */
+}
+
+                                                                 /* reset after click */
+
+.reset-layer {
+  display: none;        /* Hidden normally */
+  position: fixed;      /* Covers whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;         /* Behind enlarged image */
+}
+
+.memory:target ~ .reset-layer {
+  display: block;       /* Appears only when an image is active */
+}
+
+.memory:target {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  z-index: 999;         /* Higher than reset layer */
+}
+
+
