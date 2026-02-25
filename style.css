@@ -1,0 +1,148 @@
+/* ---------- INDEX PAGE ---------- */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.eye-link {
+    display: block;
+    width: 790px;
+    height: 562px;
+    background-image: url('eye_open.png');
+    background-size: cover;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.eye-link:hover {
+    background-image: url('eye_closed.png');
+}
+
+/* body no scroll */
+
+html, body {
+    overflow: hidden;
+}
+
+
+/* ---------- ARCHIVE PAGE ---------- */
+
+/* Container for positioned images */
+.archive-container {
+    position: relative;
+    width: 85%;
+    height: 200vh;
+    background: white;
+}
+
+
+/* Wrapper (JavaScript) */
+.image-wrapper {
+    position: absolute;
+    cursor: move;
+}
+
+
+/* Image styling */
+.memory {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Individual image placements */
+
+.m1 {
+    width: 400px;
+    top: 400px;
+    left: 150px;
+}
+
+.m2 {
+    width: 350px;
+    top: 350px;
+    right: 100px;
+}
+
+.m3 {
+    width: 180px;
+    top: 700px;
+    left: 80px;
+}
+
+.m4 {
+    width: 400px;
+    top: 1060px;
+    right: 10px;
+}
+
+.m5 {
+    width: 300px;
+    top: 700px;
+    right: 190px;
+}
+
+.m6 {
+    width: 700px;
+    top: 1000px;
+    right: 900px;
+}
+
+.m7 {
+    width: 500px;
+    top: 950px;
+    right: 300px;
+}
+
+/* Expanded state */
+.image-wrapper.expanded {
+  transform: scale(1.6);      /* how big it gets */
+  z-index: 9999 !important;   /* make sure it's above everything */
+  transition: transform 0.3s ease;
+}
+
+/* ---------------- RESET EYE ---------------- */
+
+.reset-eye {
+  position: fixed;        /* stays in top-left */
+  top: -14px;
+  left: -40px;
+  width: 200px;
+  cursor: pointer;
+  z-index: 10000;         /* above everything */
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+/* small hover movement */
+.reset-eye:hover {
+  transform: scale(1.05);
+}
+
+/* fade effect when resetting */
+.image-wrapper {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/*  DEBUG GRID OVERLAY = class="debug" (toggle archive html)*/
+body.debug::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* COLUMN + ROW GRID */
+  background-image:
+    /* columns */
+    linear-gradient(to right, rgba(250, 0, 0, 0.25) 1px, transparent 1px),
+    /* rows */
+    linear-gradient(to bottom, rgba(0, 0, 255, 0.25) 1px, transparent 1px);
+
+  /* column width + row height */
+  background-size: 40px 100%, 100% 40px;
+}
